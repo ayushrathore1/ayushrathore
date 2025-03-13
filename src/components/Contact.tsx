@@ -1,10 +1,8 @@
-
 import { useState } from "react";
 import { Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-
 export function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -12,27 +10,31 @@ export function Contact() {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+    const {
+      name,
+      value
+    } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
       // Insert the form data into Supabase
-      const { error } = await supabase.from('messages').insert([{
+      const {
+        error
+      } = await supabase.from('messages').insert([{
         name: formData.name,
         email: formData.email,
         message: formData.message
       }]);
-      
       if (error) {
         throw error;
       }
@@ -62,9 +64,7 @@ export function Contact() {
       setIsSubmitting(false);
     }
   };
-
-  return (
-    <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
+  return <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
       <div className="container relative z-10 mx-auto px-6 sm:px-8 md:px-12 lg:px-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="text-white">
@@ -83,7 +83,7 @@ export function Contact() {
             <div className="space-y-6">
               <div className={cn("p-6 rounded-xl", "bg-white/5 backdrop-blur-md border border-white/10", "transform transition-all duration-300 hover:-translate-y-1")}>
                 <h3 className="text-xl font-semibold mb-2">Email</h3>
-                <p className="text-white/70">contact@ayushrathore.com</p>
+                <p className="text-white/70">rathoreayush512@gmail.com</p>
               </div>
               
               <div className={cn("p-6 rounded-xl", "bg-white/5 backdrop-blur-md border border-white/10", "transform transition-all duration-300 hover:-translate-y-1")}>
@@ -126,6 +126,5 @@ export function Contact() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
