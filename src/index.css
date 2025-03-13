@@ -88,6 +88,23 @@
   body {
     @apply bg-background text-foreground antialiased transition-colors duration-300;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    background-image: url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
   }
 }
 
@@ -124,13 +141,9 @@
     }
   }
   
-  /* Parallax effect */
+  /* Parallax effect - removing as we're using a global background */
   .parallax {
     position: relative;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
   
   /* For better parallax effect on mobile */
@@ -146,5 +159,14 @@
   
   .dark .text-shadow {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Adding a consistent container for all sections */
+  .section-container {
+    @apply relative z-10 bg-white/10 backdrop-blur-md rounded-xl p-6 md:p-8 border border-white/20;
+  }
+  
+  .dark .section-container {
+    @apply bg-black/30 border-white/10;
   }
 }
