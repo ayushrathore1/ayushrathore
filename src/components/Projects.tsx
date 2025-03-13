@@ -18,21 +18,26 @@ const projects: Project[] = [
   {
     id: "codelearn",
     title: "CodeLearn",
-    description: "An interactive platform for beginners to learn coding through hands-on exercises and real-time feedback. Features a code editor, lesson plans, and community support.",
-    image: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
-    video: "https://player.vimeo.com/external/517090081.hd.mp4?s=8b12f4160b43bf3a675b88810226c9920d84d341&profile_id=174&oauth2_token_id=57447761",
-    technologies: ["React", "Node.js", "MongoDB", "Express"],
-    liveLink: "#",
-    githubLink: "#"
+    description:
+      "As many students struggle to fins the right resources to learn a particular programming language, The CodeLearn provides the users a platform to find the best resources to learn coding.",
+    image:
+      "https://ik.imagekit.io/ayushrathore/Images/welcome.jpg?updatedAt=1741880501987",
+    video:
+      "https://ik.imagekit.io/ayushrathore/Untitled%20design.mp4?updatedAt=1741144800606",
+    technologies: ["HTML", "CSS", "JavaScript", "Git/Github", "imagekit.io"],
+    liveLink: "https://codelearnn.netlify.app/",
+    githubLink: "https://github.com/ayushrathore1/CodeLearn",
   },
   {
     id: "portfolio",
     title: "Portfolio Website",
-    description: "A nature-themed portfolio website showcasing my projects and skills with smooth animations and interactive UI elements. Built with modern web technologies.",
-    image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    githubLink: "#"
-  }
+    description:
+      "A nature-themed portfolio website showcasing my projects and skills with smooth animations and interactive UI elements. Built with modern web technologies.",
+    image:
+      "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80",
+    technologies: ["Vibe Coding", "Some Debugging"],
+    githubLink: "https://github.com/ayushrathore1/eco-journey-showcase",
+  },
 ];
 
 export function Projects() {
