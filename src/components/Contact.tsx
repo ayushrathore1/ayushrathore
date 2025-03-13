@@ -1,8 +1,10 @@
+
 import { useState } from "react";
 import { Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+
 export function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -10,31 +12,27 @@ export function Contact() {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const {
-      name,
-      value
-    } = e.target;
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
       // Insert the form data into Supabase
-      const {
-        error
-      } = await supabase.from('messages').insert([{
+      const { error } = await supabase.from('messages').insert([{
         name: formData.name,
         email: formData.email,
         message: formData.message
       }]);
+      
       if (error) {
         throw error;
       }
@@ -64,9 +62,9 @@ export function Contact() {
       setIsSubmitting(false);
     }
   };
-  return <section id="contact" className={cn("relative py-24 md:py-32 overflow-hidden", "bg-forest-dark bg-cover bg-center bg-no-repeat parallax")}>
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]"></div>
-      
+
+  return (
+    <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
       <div className="container relative z-10 mx-auto px-6 sm:px-8 md:px-12 lg:px-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="text-white">
@@ -128,5 +126,6 @@ export function Contact() {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
