@@ -2,7 +2,7 @@ import { ArrowDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 export function Hero() {
   return <section id="home" className={cn("relative min-h-screen flex items-center justify-center overflow-hidden", "bg-forest bg-cover bg-center bg-no-repeat parallax")}>
-      <div className="absolute inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-[2px]"></div>
+      <div className="absolute inset-0 backdrop-blur-[2px] bg-black/[0.46]"></div>
       
       <div className="container mx-auto z-10 px-6 sm:px-8 md:px-12 lg:px-24 animate-fade-in">
         <div className="max-w-3xl mx-auto text-center">
