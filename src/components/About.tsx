@@ -70,7 +70,7 @@ export function About() {
               >
                 <h4 className="text-lg font-medium mb-1">Education</h4>
                 <p className="text-sm text-muted-foreground">
-                  Computer Science, University of Technology
+                  Computer Science, Arya College Of Engineering & IT
                 </p>
               </div>
 
@@ -83,7 +83,7 @@ export function About() {
               >
                 <h4 className="text-lg font-medium mb-1">Interests</h4>
                 <p className="text-sm text-muted-foreground">
-                  Web Development, UI/UX, Hiking, Photography
+                  Web Development, UI/UX, AI, Music, Travelling, Reading
                 </p>
               </div>
             </div>
