@@ -48,10 +48,10 @@ export function Footer() {
               </p>
               
               <div className="flex gap-8">
-                <a href="#" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                <a href="#" className="text-sm text-gray-300 hover:text-primary-foreground transition-colors">
                   Privacy Policy
                 </a>
-                <a href="#" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors color-white">
+                <a href="#" className="text-sm text-gray-300 hover:text-primary-foreground transition-colors">
                   Terms of Service
                 </a>
               </div>
