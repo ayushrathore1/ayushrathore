@@ -51,7 +51,7 @@ export function Footer() {
                 <a href="#" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                   Privacy Policy
                 </a>
-                <a href="#" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                <a href="#" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors color-white">
                   Terms of Service
                 </a>
               </div>
