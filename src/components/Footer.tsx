@@ -1,35 +1,29 @@
 import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import { cn } from "@/lib/utils";
-const socialLinks = [
-  {
-    name: "LinkedIn",
-    icon: Linkedin,
-    url: "www.linkedin.com/in/ayushrathore1",
-  },
-  {
-    name: "Medium",
-    icon: Twitter,
-    url: "https://ayushrathore1.medium.com/",
-  },
-  {
-    name: "Instagram",
-    icon: Instagram,
-    url: "https://www.instagram.com/ayush.rathore27/?igsh=ZmlqaWNhcG9hYXgx#",
-  },
-  {
-    name: "Twitter",
-    icon: Twitter,
-    url: "https://x.com/ayushrathore_27",
-  },
-  {
-    name: "GitHub",
-    icon: Github,
-    url: "https://github.com/ayushrathore1",
-  },
-];
+const socialLinks = [{
+  name: "LinkedIn",
+  icon: Linkedin,
+  url: "www.linkedin.com/in/ayushrathore1"
+}, {
+  name: "Medium",
+  icon: Twitter,
+  url: "https://ayushrathore1.medium.com/"
+}, {
+  name: "Instagram",
+  icon: Instagram,
+  url: "https://www.instagram.com/ayush.rathore27/?igsh=ZmlqaWNhcG9hYXgx#"
+}, {
+  name: "Twitter",
+  icon: Twitter,
+  url: "https://x.com/ayushrathore_27"
+}, {
+  name: "GitHub",
+  icon: Github,
+  url: "https://github.com/ayushrathore1"
+}];
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  return <footer className="py-16 text-primary-foreground rounded-lg bg-[#000a00]/[0.63]">
+  return <footer className="py-16 text-primary-foreground rounded-lg bg-[#bed2be]/[0.06]">
       <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-24">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
