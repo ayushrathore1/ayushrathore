@@ -82,7 +82,7 @@ export function Timeline() {
             >
               {/* Timeline dot */}
               <div className="absolute left-1/2 md:left-auto md:right-1/2 transform -translate-x-1/2 md:translate-x-0 top-0 mt-1 z-10">
-                <div className="w-4 h-4 rounded-full bg-nature-medium-green/70 dark:bg-nature-light-green/70"></div>
+                <div className="w-4 h-4 rounded-full bg-nature-medium-green dark:bg-nature-light-green"></div>
               </div>
               
               {/* Timeline content */}
