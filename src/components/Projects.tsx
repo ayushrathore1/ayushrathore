@@ -36,7 +36,7 @@ const projects: Project[] = [
     image:
       "https://ik.imagekit.io/ayushrathore/Images/portfolio.png?updatedAt=1741892297030",
      video:
-      "https://ik.imagekit.io/ayushrathore/Untitled%20design.mp4?updatedAt=1741144800606",
+      "https://ik.imagekit.io/ayushrathore/portfolio.mp4?updatedAt=1741893853625",
     technologies: ["Vibe Coding", "Some Debugging"],
       liveLink: "https://portfolio-ayushrathore.lovable.app/",
     githubLink: "https://github.com/ayushrathore1/eco-journey-showcase",
