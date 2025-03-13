@@ -35,7 +35,7 @@ export function Footer() {
             </div>
             
             <div className="flex gap-4">
-              {socialLinks.map(social => <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className={cn("p-3 rounded-full", "bg-emerald-950 hover:bg-primary-foreground/20", "transition-colors duration-300")} aria-label={`Follow on ${social.name}`}>
+              {socialLinks.map(social => <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className={cn("p-3 rounded-full", "bg-emerald-850 hover:bg-primary-emerald-950/20", "transition-colors duration-300")} aria-label={`Follow on ${social.name}`}>
                   <social.icon className="w-5 h-5" />
                 </a>)}
             </div>
