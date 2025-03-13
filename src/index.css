@@ -88,7 +88,7 @@
   body {
     @apply bg-background text-foreground antialiased transition-colors duration-300;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
-    background-image: url('https://unsplash.com/photos/empty-concrete-road-covered-surrounded-by-tall-tress-with-sun-rays-3Kv48NS4WUU');
+    background-image: url('https://ik.imagekit.io/ayushrathore/Images/forest.jpg?updatedAt=1741886709720');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
