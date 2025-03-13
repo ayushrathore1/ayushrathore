@@ -23,7 +23,7 @@ const socialLinks = [{
 }];
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  return <footer className="py-16 text-primary-foreground rounded-lg bg-[#000a00]/[0.63]">
+  return <footer className="py-16 text-primary-foreground rounded-lg bg-[#000a00]/[0.41]">
       <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-24">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
