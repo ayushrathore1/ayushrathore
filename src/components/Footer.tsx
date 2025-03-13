@@ -1,20 +1,29 @@
-
 import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const socialLinks = [
-  { name: "LinkedIn", icon: Linkedin, url: "#" },
-  { name: "Medium", icon: Twitter, url: "#" },
-  { name: "Instagram", icon: Instagram, url: "#" },
-  { name: "Twitter", icon: Twitter, url: "#" },
-  { name: "GitHub", icon: Github, url: "#" }
-];
-
+const socialLinks = [{
+  name: "LinkedIn",
+  icon: Linkedin,
+  url: "#"
+}, {
+  name: "Medium",
+  icon: Twitter,
+  url: "#"
+}, {
+  name: "Instagram",
+  icon: Instagram,
+  url: "#"
+}, {
+  name: "Twitter",
+  icon: Twitter,
+  url: "#"
+}, {
+  name: "GitHub",
+  icon: Github,
+  url: "#"
+}];
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  
-  return (
-    <footer className="py-16 bg-primary text-primary-foreground">
+  return <footer className="py-16 text-primary-foreground rounded-lg bg-[#000a00]/[0.63]">
       <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-24">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
@@ -26,22 +35,9 @@ export function Footer() {
             </div>
             
             <div className="flex gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(
-                    "p-3 rounded-full",
-                    "bg-primary-foreground/10 hover:bg-primary-foreground/20",
-                    "transition-colors duration-300"
-                  )}
-                  aria-label={`Follow on ${social.name}`}
-                >
+              {socialLinks.map(social => <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className={cn("p-3 rounded-full", "bg-primary-foreground/10 hover:bg-primary-foreground/20", "transition-colors duration-300")} aria-label={`Follow on ${social.name}`}>
                   <social.icon className="w-5 h-5" />
-                </a>
-              ))}
+                </a>)}
             </div>
           </div>
           
@@ -63,6 +59,5 @@ export function Footer() {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 }
