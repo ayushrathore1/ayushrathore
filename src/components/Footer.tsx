@@ -43,7 +43,7 @@ export function Footer() {
           
           <div className="border-t border-primary-foreground/20 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-sm text-primary-foreground/70 mb-4 md:mb-0">
+              <p className="text-sm mb-4 md:mb-0 text-gray-300">
                 &copy; {currentYear} Ayush Rathore. All rights reserved.
               </p>
               
