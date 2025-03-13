@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -11,7 +13,7 @@ export function Contact() {
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle");
+  const { toast } = useToast();
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -22,19 +24,42 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate a form submission
-    setTimeout(() => {
-      // For now, just simulate a successful submission
-      // This will be replaced with actual Supabase integration in Phase 3
-      setFormStatus("success");
-      setIsSubmitting(false);
-      setFormData({ name: "", email: "", message: "" });
+    try {
+      // Insert the form data into Supabase
+      const { error } = await supabase
+        .from('messages')
+        .insert([
+          { 
+            name: formData.name,
+            email: formData.email,
+            message: formData.message
+          }
+        ]);
       
-      // Reset form status after 3 seconds
-      setTimeout(() => {
-        setFormStatus("idle");
-      }, 3000);
-    }, 1000);
+      if (error) {
+        throw error;
+      }
+      
+      // Show success message
+      toast({
+        title: "Message sent!",
+        description: "Thank you for your message. I'll get back to you soon.",
+        variant: "default",
+      });
+      
+      // Reset form
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      // Show error message
+      toast({
+        title: "Error sending message",
+        description: "There was a problem sending your message. Please try again.",
+        variant: "destructive",
+      });
+      console.error("Error sending message:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
   return (
@@ -89,95 +114,85 @@ export function Contact() {
           )}>
             <h3 className="text-xl text-white font-semibold mb-6">Send a Message</h3>
             
-            {formStatus === "success" ? (
-              <div className="bg-green-500/20 backdrop-blur-md border border-green-500/30 rounded-lg p-4 text-white">
-                <p className="text-center">Thank you for your message! I'll get back to you soon.</p>
-              </div>
-            ) : formStatus === "error" ? (
-              <div className="bg-red-500/20 backdrop-blur-md border border-red-500/30 rounded-lg p-4 text-white">
-                <p className="text-center">There was an error sending your message. Please try again.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-1">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className={cn(
-                      "w-full p-3 rounded-lg",
-                      "bg-white/10 border border-white/20",
-                      "text-white placeholder:text-white/50",
-                      "focus:outline-none focus:ring-2 focus:ring-white/30"
-                    )}
-                    placeholder="Your name"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-1">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className={cn(
-                      "w-full p-3 rounded-lg",
-                      "bg-white/10 border border-white/20",
-                      "text-white placeholder:text-white/50",
-                      "focus:outline-none focus:ring-2 focus:ring-white/30"
-                    )}
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-1">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={4}
-                    className={cn(
-                      "w-full p-3 rounded-lg",
-                      "bg-white/10 border border-white/20",
-                      "text-white placeholder:text-white/50",
-                      "focus:outline-none focus:ring-2 focus:ring-white/30"
-                    )}
-                    placeholder="Your message..."
-                  />
-                </div>
-                
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-1">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                   className={cn(
-                    "w-full py-3 px-4 rounded-lg flex items-center justify-center gap-2",
-                    "bg-white/10 hover:bg-white/20 border border-white/20",
-                    "text-white font-medium transition-colors",
-                    "focus:outline-none focus:ring-2 focus:ring-white/30",
-                    isSubmitting && "opacity-70 cursor-not-allowed"
+                    "w-full p-3 rounded-lg",
+                    "bg-white/10 border border-white/20",
+                    "text-white placeholder:text-white/50",
+                    "focus:outline-none focus:ring-2 focus:ring-white/30"
                   )}
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                  <Send className="w-4 h-4" />
-                </button>
-              </form>
-            )}
+                  placeholder="Your name"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-1">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className={cn(
+                    "w-full p-3 rounded-lg",
+                    "bg-white/10 border border-white/20",
+                    "text-white placeholder:text-white/50",
+                    "focus:outline-none focus:ring-2 focus:ring-white/30"
+                  )}
+                  placeholder="your.email@example.com"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-1">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={4}
+                  className={cn(
+                    "w-full p-3 rounded-lg",
+                    "bg-white/10 border border-white/20",
+                    "text-white placeholder:text-white/50",
+                    "focus:outline-none focus:ring-2 focus:ring-white/30"
+                  )}
+                  placeholder="Your message..."
+                />
+              </div>
+              
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={cn(
+                  "w-full py-3 px-4 rounded-lg flex items-center justify-center gap-2",
+                  "bg-white/10 hover:bg-white/20 border border-white/20",
+                  "text-white font-medium transition-colors",
+                  "focus:outline-none focus:ring-2 focus:ring-white/30",
+                  isSubmitting && "opacity-70 cursor-not-allowed"
+                )}
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
+                <Send className="w-4 h-4" />
+              </button>
+            </form>
           </div>
         </div>
       </div>

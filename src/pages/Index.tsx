@@ -55,14 +55,16 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-      <Hero />
-      <About />
-      <Projects />
-      <Timeline />
-      <Contact />
+      <main className="relative">
+        <Hero />
+        <About />
+        <Projects />
+        <Timeline />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );
-};
+}
 
 export default Index;
