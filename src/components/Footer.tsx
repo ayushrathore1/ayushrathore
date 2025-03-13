@@ -29,7 +29,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
             <div className="text-center md:text-left">
               <h2 className="text-2xl font-bold mb-2 text-gray-200">Ayush Rathore</h2>
-              <p className="text-primary-foreground/70 max-w-md">
+              <p className="max-w-md text-base text-gray-200">
                 Creating meaningful digital experiences through code and thoughtful design.
               </p>
             </div>
