@@ -9,7 +9,7 @@ export function About() {
           <div className="relative" data-aos="fade-right">
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
               <img
-                src="https://ik.imagekit.io/ayushrathore/Images/ayush.jpg?updatedAt=1741883041522"
+                src="https://ik.imagekit.io/ayushrathore/Images/ayushupdated.png?updatedAt=1741883484904"
                 alt="Ayush Rathore"
                 className="w-full h-full object-cover transition-all duration-500 hover:scale-105"
               />
