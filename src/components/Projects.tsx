@@ -50,8 +50,8 @@ export function Projects() {
   };
   
   return (
-    <section id="projects" className="py-24 md:py-32 bg-secondary/30">
-      <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-24">
+    <section id="projects" className="w-full py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block px-4 py-1.5 rounded-full bg-secondary text-sm font-medium mb-2">
             My Work

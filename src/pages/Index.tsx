@@ -57,17 +57,9 @@ const Index = () => {
       <Navbar />
       <main className="relative">
         <Hero />
-        <div className="container mx-auto px-4 py-8">
-          <div className="section-container my-8">
-            <About />
-          </div>
-          <div className="section-container my-8">
-            <Projects />
-          </div>
-          <div className="section-container my-8">
-            <Timeline />
-          </div>
-        </div>
+        <About />
+        <Projects />
+        <Timeline />
         <Contact />
       </main>
       <Footer />
